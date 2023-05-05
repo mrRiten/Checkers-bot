@@ -18,6 +18,28 @@ class GamePlay:
     def join_player(self, player1, player2):
         # TODO connect player to server
         return [player1, player2]
+    
+    # func for return game_matrix in ui format
+    def return_game(self):
+        letter_array = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+        index = 0
+        user_matrix = [['  1    2   3   4   5   6    7   8']]
+        for line in self.game_matrix:
+            work_matrix_line = ''
+            for block in line:
+                if block == 0:
+                    work_matrix_line += '⬜'
+                elif block == 1:
+                    work_matrix_line += '⬛'
+                elif block == 'w':
+                    work_matrix_line += '🔵'
+                elif block == 'b':
+                    work_matrix_line += '🔴'
+            work_matrix_line += letter_array[index]
+            index += 1
+            user_matrix.append(work_matrix_line)
+        return user_matrix    
+    
 
     # Print game for players and realize simple ui
     def print_game(self):
